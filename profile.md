@@ -2481,6 +2481,10 @@ also true in the WLCG profile.
   permit a smooth transition from legacy methods and systems towards adequate,
   convenient and sustainable use of tokens across the WLCG infrastructure.
 
+- [WLCG standard system JWKS cache](https://zenodo.org/records/18392301) &mdash;
+  Defines a system-wide cache of JWKS information for issuers of interest
+  that multiple token-parsing libraries can reuse.
+
 
 <!-- Footnotes themselves at the bottom. -->
 ## 5.5. Notes
