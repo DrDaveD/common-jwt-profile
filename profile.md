@@ -67,6 +67,7 @@ Zenodo</a>
     - [2.2.1. Capability-based Authorization: scope](#221-capability-based-authorization-scope)<a id="toc-080"></a>
     - [2.2.2. Group Based Authorization: wlcg.groups](#222-group-based-authorization-wlcggroups)<a id="toc-090"></a>
     - [2.2.3. Interpretation of Authorization by the Resource Server](#223-interpretation-of-authorization-by-the-resource-server)<a id="toc-100"></a>
+    - [2.2.4. Host-based Authorization](#224-host-based-authorization)<a id="toc-105"></a>
   - [2.3. Identity Assurance](#23-identity-assurance)<a id="toc-110"></a>
 - [3. Scope-based Attribute Selection](#3-scope-based-attribute-selection)<a id="toc-120"></a>
   - [3.1. Scope-based Group Selection](#31-scope-based-group-selection)<a id="toc-130"></a>
@@ -1094,6 +1095,22 @@ If the token contains none of the capability statements defined above
 then the service SHOULD make authorization decisions based on the
 group-membership statements.
 
+### 2.2.4. Host-based Authorization
+([ToC](#toc-105))
+
+For host to host communication it is sometimes sufficient for a server
+host to simply verify the name of a client host.  This is analogous to
+a client using its own X.509 host certificate to authenticate itself to
+a service.
+
+This type of authorization may be done by using an access token
+containing a `sub` claim of the form `host:fully.qualified.domain` where
+`fully.qualified.domain` is a full DNS name or alias for the client
+host, combined with a `scope` claim containing **`host.auth`**.
+
+It probably makes the most sense to obtain these types of tokens using
+the [Client credentials flow](#526-client-credentials-flow) where the
+client holds its own client ID and secret.
 
 ## 2.3. Identity Assurance
 ([ToC](#toc-110))
